@@ -22,7 +22,7 @@ on:
     - cron: '0 10 * * *'
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
     tags:
       - 'v*'
@@ -900,7 +900,7 @@ jobs:
         working-directory: /tmp/build
         run: |
           tree .
-          
+
       -
         name: Guardar información del workflow
         if: always()

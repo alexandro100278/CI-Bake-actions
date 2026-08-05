@@ -10,7 +10,7 @@ concurrency:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
     paths-ignore:
       - '.github/workflows/ci-subaction.yml'
@@ -39,7 +39,7 @@ jobs:
         with:
           files: ./coverage/clover.xml
           token: ${{ secrets.CODECOV_TOKEN }}
-          
+
       -
         name: Guardar información del workflow
         if: always()

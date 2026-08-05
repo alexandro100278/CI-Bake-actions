@@ -13,7 +13,7 @@ on:
     - cron: '0 10 * * *'
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
     tags:
       - 'v*'
@@ -87,7 +87,7 @@ jobs:
             } else {
               core.info(`✅`);
             }
-            
+
       -
         name: Guardar información del workflow
         if: always()

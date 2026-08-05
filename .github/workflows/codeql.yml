@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
       - 'releases/v*'
   pull_request:
 
