@@ -28,7 +28,7 @@ jobs:
       min-confidence: medium
       persona: pedantic
 
-save-workflow:
+  save-workflow:
     needs: run
     if: always()
     runs-on: ubuntu-latest
