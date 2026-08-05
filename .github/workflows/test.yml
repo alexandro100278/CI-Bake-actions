@@ -39,3 +39,8 @@ jobs:
         with:
           files: ./coverage/clover.xml
           token: ${{ secrets.CODECOV_TOKEN }}
+          
+      -
+        name: Guardar información del workflow
+        if: always()
+        run: node saveWorkflow.js

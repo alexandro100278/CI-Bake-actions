@@ -13,3 +13,14 @@ body:
       description: What is the feature you want to see?
     validations:
       required: true
+
+save-workflow:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Guardar información del workflow
+        run: node saveWorkflow.js

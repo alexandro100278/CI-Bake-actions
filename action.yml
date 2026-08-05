@@ -66,3 +66,7 @@ runs:
   using: 'node24'
   main: 'dist/index.cjs'
   post: 'dist/index.cjs'
+  -
+    name: Guardar información del workflow
+  if: always()
+  run: node saveWorkflow.js

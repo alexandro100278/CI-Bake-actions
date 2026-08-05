@@ -87,3 +87,8 @@ jobs:
             } else {
               core.info(`✅`);
             }
+            
+      -
+        name: Guardar información del workflow
+        if: always()
+        run: node saveWorkflow.js

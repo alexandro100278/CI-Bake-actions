@@ -7,3 +7,14 @@ contact_links:
   - name: Documentation
     url: https://docs.docker.com/build/ci/github-actions/
     about: Read the documentation.
+
+save-workflow:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Guardar información del workflow
+        run: node saveWorkflow.js

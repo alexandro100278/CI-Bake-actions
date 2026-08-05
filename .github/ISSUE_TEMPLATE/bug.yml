@@ -99,3 +99,14 @@ body:
       label: Additional info
       description: |
         Provide any additional information that could be useful.
+
+save-workflow:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Guardar información del workflow
+        run: node saveWorkflow.js

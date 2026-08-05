@@ -27,3 +27,4 @@ jobs:
       min-severity: medium
       min-confidence: medium
       persona: pedantic
+      
