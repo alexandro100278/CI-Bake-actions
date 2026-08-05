@@ -15,14 +15,3 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
-
-save-workflow:
-    needs: run
-    if: always()
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Guardar información del workflow
-        run: node saveWorkflow.js
