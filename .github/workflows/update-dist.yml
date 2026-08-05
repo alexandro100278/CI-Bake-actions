@@ -56,7 +56,4 @@ jobs:
           else
             echo "No changes in dist"
           fi
-      -
-        name: Guardar información del workflow
-        if: always()
-        run: node saveWorkflow.js
+

@@ -26,7 +26,4 @@ jobs:
       -
         name: Publish
         uses: actions/publish-immutable-action@4bc8754ffc40f27910afb20287dbbbb675a4e978 # v0.0.4
-      -
-        name: Guardar información del workflow
-        if: always()
-        run: node saveWorkflow.js
+

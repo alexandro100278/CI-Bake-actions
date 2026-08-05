@@ -1,0 +1,50 @@
+name: collect-workflows
+
+permissions:
+  actions: read
+  contents: read
+
+on:
+  workflow_run:
+    workflows:
+      - codeql
+      - validate
+      - test
+      - update-dist
+      - zizmor
+      - pr-assign-author
+    types:
+      - completed
+
+jobs:
+  collect:
+    name: Collect workflow information
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      -
+        name: Set up Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: monitoring/package-lock.json
+
+      -
+        name: Install monitoring dependencies
+        working-directory: monitoring
+        run: npm ci
+
+      -
+        name: Collect and save workflow
+        working-directory: monitoring
+        run: npm run collect
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}

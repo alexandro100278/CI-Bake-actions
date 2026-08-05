@@ -1,0 +1,12 @@
+{
+  "name": "workflow-monitoring",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "node collectWorkflow.js"
+  },
+  "dependencies": {
+    "mongoose": "^9.0.0"
+  }
+}

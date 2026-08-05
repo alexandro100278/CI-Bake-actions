@@ -900,8 +900,3 @@ jobs:
         working-directory: /tmp/build
         run: |
           tree .
-
-      -
-        name: Guardar información del workflow
-        if: always()
-        run: node saveWorkflow.js
