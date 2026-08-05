@@ -85,5 +85,5 @@ jobs:
             if (matrix !== expected) {
               throw new Error(`Matrix do not match expected values: ${matrix} != ${expected}`);
             } else {
-              core.info(`✅`);
+              core.info(`✅.`);
             }
